@@ -1,6 +1,12 @@
 // GET REQUEST
 function getTodos() {
   console.log('GET Request');
+  axios({
+    method: 'get',
+    url : 'https://jsonplaceholder.typicode.com/todos'
+  })
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 }
 
 // POST REQUEST
@@ -53,7 +59,6 @@ function showOutput(res) {
   <div class="card card-body mb-4">
     <h5>Status: ${res.status}</h5>
   </div>
-
   <div class="card mt-3">
     <div class="card-header">
       Headers
@@ -62,7 +67,6 @@ function showOutput(res) {
       <pre>${JSON.stringify(res.headers, null, 2)}</pre>
     </div>
   </div>
-
   <div class="card mt-3">
     <div class="card-header">
       Data
@@ -71,7 +75,6 @@ function showOutput(res) {
       <pre>${JSON.stringify(res.data, null, 2)}</pre>
     </div>
   </div>
-
   <div class="card mt-3">
     <div class="card-header">
       Config
